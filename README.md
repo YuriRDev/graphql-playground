@@ -1,2 +1,7 @@
 # 🎇 GraphQL Learning Playground
-🍟 Playground wile learning GraphQL
+
+> File 1
+
+> Basico
+>
+> Sem organizacao de pastas ou conexao com DB
