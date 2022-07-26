@@ -2,6 +2,17 @@
 
 > File 1
 
-> Basico
+> Basico - Somente query
 >
-> Sem organizacao de pastas ou conexao com DB
+> Sem organizacao
+>
+> sem conexao com DB
+
+
+> File 2
+
+> Basico - Somente Query
+>
+> Organizado 
+>
+> sem conexao com DB
