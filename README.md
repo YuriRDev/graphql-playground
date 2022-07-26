@@ -1,5 +1,5 @@
 # 🎇 GraphQL Learning Playground
-
+**🎆 My progress wile learning GraphQL**
 
 #### 👶 Ex 1 - Hello Mum 
 ```null
