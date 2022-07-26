@@ -1,5 +1,7 @@
 const db = require("../../../db");
 
+const { UserInputError } = require("apollo-server");
+
 module.exports = {
   Post: {
     author: (obj) => {
@@ -17,19 +19,23 @@ module.exports = {
   },
   Mutation: {
     createPost: (_, args) => {
-      // verificar se o titulo ja existe
+      // ver if title already exists
 
-      const id = db.posts.length;
-      const data = {
-        id: id,
-        title: args.title,
-        content: args.content,
-        author: args.author,
-      };
+      const titleExist = db.posts.some((u) => u.title == args.title);
+      if (titleExist) {
+        throw new UserInputError("Title already exists!");
+      } else {
+        const data = {
+          id: db.posts.length,
+          title: args.title,
+          content: args.content,
+          author: args.author,
+        };
 
-      db.posts.push(data);
+        db.posts.push(data);
 
-      return data;
+        return data;
+      }
     },
   },
 };
