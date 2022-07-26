@@ -15,15 +15,18 @@ const usersDB = [
   },
 ];
 
-const endDb = [{
+const endDb = [
+  {
     rua: "Almirante tamandare",
     bairro: "Gutierrez",
-    comp: "Apto 1000"
-}, {
+    comp: "Apto 1000",
+  },
+  {
     rua: "Conego rocha franco",
     bairro: "Gutierrez",
-    comp: "Apto 200"
-}]
+    comp: "Apto 200",
+  },
+];
 
 const typeDefs = gql`
   type Users {
@@ -40,25 +43,27 @@ const typeDefs = gql`
   }
 
   type Query {
-    hello: String
     getUsers: [Users]
+    getUserByEmail(email: String!): Users
   }
 `;
 
 const resolvers = {
   Users: {
     endereco: (obj, args) => {
-      console.log(obj);
       return endDb[obj.end];
     },
   },
   Query: {
-    hello: () => "Hello World!",
+    getUserByEmail: (_, args) => {
+      return usersDB.find((user) => user.email == args.email);
+    },
     getUsers: () => {
       return usersDB;
     },
   },
 };
+
 const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen().then(({ url }) => {
