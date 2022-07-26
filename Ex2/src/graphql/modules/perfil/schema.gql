@@ -1,0 +1,8 @@
+type Perfil {
+    id: Int
+    perfil: String
+}
+
+type Query {
+    listPerfils: [Perfil]
+}

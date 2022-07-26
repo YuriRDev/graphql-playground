@@ -1,41 +1,8 @@
-const { ApolloServer, gql } = require("apollo-server");
+const { ApolloServer } = require("apollo-server");
+const {typeDefs, resolvers} = require('./src/graphql')
 
-const userDB = [
-  {
-    name: "Yuri",
-    age: 14,
-    email: "yuri@email.com",
-  },
-  {
-    name: "Pedro",
-    age: 24,
-    email: "pedro@email.com",
-  },
-];
+const { makeExecutableSchema } = require('@graphql-tools/schema'); //necessário instalar antes -> npm i @graphql-tools/schema
 
-const typeDefs = gql`
-  type User {
-    age: Int
-    name: String
-    email: String
-  }
-
-  type Query {
-    hello: String
-    users: [User]
-  }
-`;
-const resolvers = {
-  User: {
-    age: (obj) => (obj.age += 10),
-  },
-  Query: {
-    hello: () => "Hello World!",
-    users: () => {
-      return userDB;
-    },
-  },
-};
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
