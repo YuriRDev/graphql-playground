@@ -5,11 +5,18 @@ type Post {
   author: Author
 }
 
+input PostInput {
+  title: String
+  content: String
+  author: String
+}
+
 type Query {
   listPost: [Post]
   post(id: Int!): Post
 }
 
 type Mutation {
-  createPost(title: String!, content: String!, author: String!): Post
+  createPost(data: PostInput): Post!
+  deletePost(id: Int): Boolean!
 }

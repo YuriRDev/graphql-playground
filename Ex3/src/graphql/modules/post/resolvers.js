@@ -18,23 +18,33 @@ module.exports = {
     },
   },
   Mutation: {
-    createPost: (_, args) => {
+    createPost: (_, { data }) => {
       // ver if title already exists
 
-      const titleExist = db.posts.some((u) => u.title == args.title);
+      const titleExist = db.posts.some((u) => u.title == data.title);
       if (titleExist) {
-        throw new UserInputError("Title already exists!");
+        throw new Error("Title already exists!");
       } else {
-        const data = {
+        const newPost = {
           id: db.posts.length,
-          title: args.title,
-          content: args.content,
-          author: args.author,
+          title: data.title,
+          content: data.content,
+          author: data.author,
         };
 
-        db.posts.push(data);
+        db.posts.push(newPost);
 
-        return data;
+        return newPost;
+      }
+    },
+    deletePost: (_, { id }) => {
+      const findPost = db.posts.find((u) => u.id == id);
+      console.log(findPost);
+      if (findPost) {
+        db.posts = db.posts.filter((u) => u.id != id);
+        return true;
+      } else {
+        return false;
       }
     },
   },
