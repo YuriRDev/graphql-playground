@@ -1,5 +1,5 @@
 # 🎇 GraphQL Learning Playground
-**🎆 My progress wile learning GraphQL**
+**🎆 My progress while learning GraphQL**
 
 #### 🥚 Ex 1 - Hello Mum 
 ```null
@@ -35,5 +35,6 @@
   ✅ Context ( Auth )
   ✅ Online DB ( MongoDB )
 ```
+
 
 
