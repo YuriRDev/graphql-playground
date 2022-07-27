@@ -1,9 +1,11 @@
 const { randomUUID } = require("crypto");
+var jwt = require("jsonwebtoken");
+const secret = require("../../../db/secret");
 const User = require("../../../db/models/User");
 
 module.exports = {
   Query: {
-    getUserById: async (_, { id }) => {
+    getUserById: async (_, { id }, { userId }) => {
       const findedUser = await User.findOne({
         id: id,
       });
@@ -12,6 +14,24 @@ module.exports = {
         return findedUser;
       } else {
         throw new Error("Could not find user!");
+      }
+    },
+    login: async (_, { email, password }) => {
+      const userFounded = await User.findOne({
+        email: String(email).toLowerCase(),
+        password,
+      });
+
+      if (userFounded) {
+        console.log(userFounded);
+        const token = jwt.sign({ data: userFounded.id }, secret);
+
+        return {
+          token: token,
+          info: userFounded,
+        };
+      } else {
+        throw new Error("Invalid email/password combination");
       }
     },
   },
@@ -36,7 +56,7 @@ module.exports = {
         await User.create(newUser);
 
         return {
-          token: "abc",
+          token: jwt.sign({ data: newUser.id }, secret),
           info: newUser,
         };
       }

@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const secret = require("./src/db/secret");
+var jwt = require("jsonwebtoken");
 
 const { ApolloServer } = require("apollo-server");
 const { typeDefs, resolvers } = require("./src/graphql");
@@ -7,8 +9,19 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => {
+    // reading jwt token
+    let userId;
+    jwt.verify(req.headers.authorization, secret, (err, decode) => {
+      if (decode) {
+        userId = decode.data;
+      }
+      if (err) {
+        userId = null;
+      }
+    });
+
     return {
-      reqId: req.headers.my_id,
+      userId: userId,
     };
   },
 });

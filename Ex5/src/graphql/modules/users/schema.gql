@@ -4,14 +4,14 @@ type User {
   username: String
 }
 
-type Query {
-  listUsers: [User]
-  getUserById(id: String!): User
-}
-
 type AuthResp {
   token: String
   info: User
+}
+
+type Query {
+  getUserById(id: String!): User
+  login(email: String!, password: String!): AuthResp
 }
 
 type Mutation {
