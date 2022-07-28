@@ -2,6 +2,7 @@ const { randomUUID } = require("crypto");
 var jwt = require("jsonwebtoken");
 const secret = require("../../../db/secret");
 const User = require("../../../db/models/User");
+const Post = require("../../../db/models/Post");
 
 module.exports = {
   Query: {
@@ -23,7 +24,6 @@ module.exports = {
       });
 
       if (userFounded) {
-        console.log(userFounded);
         const token = jwt.sign({ data: userFounded.id }, secret);
 
         return {
@@ -59,6 +59,26 @@ module.exports = {
           token: jwt.sign({ data: newUser.id }, secret),
           info: newUser,
         };
+      }
+    },
+    deleteAccount: async (_, __, { userId }) => {
+      if (userId) {
+        const findedUser = await User.findOne({ id: userId });
+
+        if (findedUser) {
+          await User.findOneAndDelete({
+            id: userId,
+          });
+
+          await Post.remove({
+            author: userId,
+          });
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        throw new Error("You are not authed!");
       }
     },
   },

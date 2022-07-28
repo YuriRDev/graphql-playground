@@ -16,4 +16,5 @@ type Query {
 
 type Mutation {
   createUser(email: String!, username: String!, password: String!): AuthResp
+  deleteAccount: Boolean
 }
