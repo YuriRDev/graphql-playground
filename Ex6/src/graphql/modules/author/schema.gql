@@ -1,0 +1,12 @@
+type Author {
+  id: Int
+  name: String
+}
+
+type Query {
+  listAuthors: [Author]
+  getAuthorById(id: Int!): Author
+  createAuthor(name: String!): Author
+  deleteAuthor(id: Int!): Boolean
+  editAuthor(id: Int!, name: String!): Author
+}

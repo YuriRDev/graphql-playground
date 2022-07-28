@@ -1,0 +1,19 @@
+type Post {
+  id: Int
+  title: String
+  content: String
+  author: Author
+}
+
+input PostInput {
+  title: String!
+  content: String!
+}
+
+type Query {
+  listPost: [Post]
+  getPostById(id: Int!): Post
+  createPost(data: PostInput!): Post
+  deletePost(id: Int!): Boolean
+  editPost(id: Int!, data: PostInput!): Post
+}
