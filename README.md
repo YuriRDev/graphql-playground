@@ -38,10 +38,10 @@
 ```
 
 #### 🐤 Ex 6 - Now I understand graphQL on back-end!
+*Abbandoned subscription, cause it was boring. Sowy*
 ```null
-  ✅ Query, Mutation & Subscription
+  ✅ Query, Mutation
   ✅ Typescript
-  ✅ Real-time ( WebSockets )
   ...
 ```
 
