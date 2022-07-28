@@ -6,7 +6,7 @@
   ✅ Query
 ```
 
-#### 🥚 Ex 2 - Hello World!
+#### 🐣 Ex 2 - Hello World!
 ```null
   ✅ Query
   ✅ Folders Organized
@@ -19,7 +19,7 @@
   ✅ Folders Organized
 ```
 
-#### 🐣 Ex 4 - Actually, there's a more lot to learn
+#### 🐤 Ex 4 - Actually, there's a more lot to learn
 ```null
   ✅ Query & Mutation ( full crud )
   ✅ Typed Input & Input handle
@@ -27,7 +27,7 @@
   ✅ Context 
 ```
 
-#### 🐤 Ex 5 - I'll get there eventually
+#### 🐥 Ex 5 - I'll get there eventually
 *Practice only - creating fully relational crud with mongoose* 
 ```null
   ✅ Query & Mutation ( full crud )
@@ -37,7 +37,7 @@
   ✅ Online DB ( MongoDB )
 ```
 
-#### 🐤 Ex 6 - Now I understand graphQL on back-end!
+#### 🐔 Ex 6 - Now I understand graphQL on back-end!
 *Abbandoned subscription, cause it was boring. Sowy*
 ```null
   ✅ Query, Mutation
@@ -45,4 +45,7 @@
   ...
 ```
 
+
+### 🤩 Time to move to front-end! 
+*😞Unfortunately I'll not be releasing the ReactJS project here, this repo would be a total mess*
 
