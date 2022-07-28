@@ -37,8 +37,9 @@
   ✅ Online DB ( MongoDB )
 ```
 
-#### 🐤 Ex 6 - Now I know the graphQL on back-end1
+#### 🐤 Ex 6 - Now I understand graphQL on back-end!
 ```null
+  ✅ Query, Mutation & Subscription
   ✅ Typescript
   ✅ Real-time ( WebSockets )
   ...
