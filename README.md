@@ -28,6 +28,7 @@
 ```
 
 #### 🐤 Ex 5 - I'll get there eventually
+*Practice only - creating fully relational crud with mongoose* 
 ```null
   ✅ Query & Mutation ( full crud )
   ✅ Typed Input & Input handle
@@ -36,5 +37,11 @@
   ✅ Online DB ( MongoDB )
 ```
 
+#### 🐤 Ex 6 - Now I know the graphQL on back-end1
+```null
+  ✅ Typescript
+  ✅ Real-time ( WebSockets )
+  ...
+```
 
 
